@@ -35,15 +35,15 @@ export default class Tooltip extends Module{
 		if(column.definition.headerTooltip && !this.headerSubscriber){
 			this.headerSubscriber = true;
 			
-			this.subscribe("column-mousemove", this.mousemoveCheck.bind(this, "headerTooltip"));
-			this.subscribe("column-mouseout", this.mouseoutCheck.bind(this, "headerTooltip"));
+			this.subscribe("column-mouseenter", this.mousemoveCheck.bind(this, "headerTooltip"));
+			this.subscribe("column-mouseleave", this.mouseoutCheck.bind(this, "headerTooltip"));
 		}
 		
 		if(column.definition.tooltip && !this.tooltipSubscriber){
 			this.tooltipSubscriber = true;
 			
-			this.subscribe("cell-mousemove", this.mousemoveCheck.bind(this, "tooltip"));
-			this.subscribe("cell-mouseout", this.mouseoutCheck.bind(this, "tooltip"));
+			this.subscribe("cell-mouseenter", this.mousemoveCheck.bind(this, "tooltip"));
+			this.subscribe("cell-mouseleave", this.mouseoutCheck.bind(this, "tooltip"));
 		}
 	}
 	
